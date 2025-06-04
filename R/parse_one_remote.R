@@ -18,6 +18,7 @@ parse_one_remote <- function(x) {
     repo <- pieces
   } else if (length(pieces) == 2) {
     type <- pieces[1]
+    if(grepl( "=url", pieces[1], fixed = TRUE)) { type <- "url"}
     repo <- pieces[2]
   } else {
     stop("Malformed remote specification '",
